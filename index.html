@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta title="ToDo List">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		  rel="stylesheet" 
+		  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+		  crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+<header>
+	<h1 class="main_head">
+	<span class="red_letter">T</span>
+	<span class="blue_letter">o</span> 
+	<span class="red_letter">D</span>
+	<span class="blue_letter">o</span></h1>
+</header>
+
+<main role="main" class="container">
+  <div class="row">	
+	<section class="col-sm-4 text-center" id="user-interface">
+		<header>
+		<h3>What needs to be done today</h3>
+		</header>
+		<form role="form">
+		 <div class="form-group">
+		 <label>Name: 
+		 <input type="text" min="2" name="name" id="name_box" class="form-control">
+		 </label>
+		 </div>
+		 
+		 <div class="form-group">
+		 <label>Chore: 
+		 <input type="text" name="chore" id="chore_box" class="form-control">
+		 </label>
+		 </div>
+
+		 <div id="added_tasks">
+		 </div>
+		 
+		 <div class="form-group">
+		 <label>New Task: 
+		 <button class="btn btn-default btn-lg" id="add_task"> + </button>
+		 </label>
+		 <button class="btn btn-primary btn-lg" id="submit_button">Submit</button>
+		 </div>
+		 <span id="limit_span">(Task Limit: 10)</span>
+		</form>
+	</section>
+	
+	<section class="container col-sm-8" id="task-bars">
+	<script type="text/template" id="task_box_template">
+		{{#taskers}}
+	 	<div class="task_box">
+	 	 <header class="task_header text-left text-capitalize">
+	 	 <h4 class="h3">Name: {{name}} </h4>
+	 	 <button type="button" class="close removal_btn" aria-label="Close">
+	 	 <span aria-hidden="true">&times;</span>
+	 	 </button>
+	 	 </header>
+	 	 <ul class="">
+		 {{#chore}}<li>{{.}}</li>{{/chore}}
+		 </ul>
+	 	</div>
+	 	{{/taskers}}
+	</script>
+	</section>
+  </div>
+</main>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script type="text/javascript" src="Todo.js"></script>
+</body>
+</html>
